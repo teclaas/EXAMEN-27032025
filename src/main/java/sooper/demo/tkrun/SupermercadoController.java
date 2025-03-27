@@ -10,6 +10,9 @@ public class SupermercadoController {
 	private SupermercadoView view;
 	
 		
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void setVistaModel( SupermercadoView v , SupermercadoModel m) {
 		this.model = m;
 		this.view = v;
@@ -30,6 +33,9 @@ public class SupermercadoController {
 	};
 	
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public SupermercadoView getView() {
 		return view;
 	}

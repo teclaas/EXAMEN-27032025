@@ -55,12 +55,13 @@ public class SwingMain {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Main");
-		frame.setBounds(0, 0, 287, 185);
+		frame.setBounds(0, 0, 289, 300);
 		frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		
 		JButton btnNewButton = new JButton("BIENVENIDO AL SUPERMERCADO ONLINE");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+		{
 				SupermercadoController controller = new SupermercadoController();
 				SupermercadoView vista = new SupermercadoView(controller);
 				SupermercadoModel modelo = new SupermercadoModel();

@@ -11,6 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JLabel;
+import java.awt.Label;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
+import java.awt.Panel;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import java.awt.TextField;
 
 public class SupermercadoView {
 
@@ -49,7 +57,6 @@ public class SupermercadoView {
 		
 		
 		frmSupermercado = new JFrame();
-		frmSupermercado.getContentPane().setLayout(new MigLayout("", "[grow]", "[][][grow][][grow][]"));
 		frmSupermercado.setBounds(0,0,500,500);
 		this.controller = controlador; //aqui ya tengo vinculada la vista con el controlador que creo en el swingMain
 		
@@ -60,9 +67,10 @@ public class SupermercadoView {
 				textField.setText("");
 			}
 		});
+		frmSupermercado.getContentPane().setLayout(new MigLayout("", "[470px]", "[20px][23px][427px][23px][427px][][][][23px]"));
 	
 		textField.setText("<introduce aqui el id Pedido>");
-		frmSupermercado.getContentPane().add(textField, "cell 0 0,growx");
+		frmSupermercado.getContentPane().add(textField, "cell 0 0,growx,aligny top");
 		textField.setColumns(10);
 		
 		JButton btnAniadirPedido = new JButton("Añadir Pedido");
@@ -72,7 +80,7 @@ public class SupermercadoView {
 			}
 		});
 		
-		frmSupermercado.getContentPane().add(btnAniadirPedido, "cell 0 1");
+		frmSupermercado.getContentPane().add(btnAniadirPedido, "cell 0 1,alignx left,aligny top");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		frmSupermercado.getContentPane().add(scrollPane, "cell 0 2,grow");
@@ -82,9 +90,17 @@ public class SupermercadoView {
 		scrollPane.setViewportView(table);
 
 		btnEmbolsar = new JButton("Embolsar");
-		frmSupermercado.getContentPane().add(btnEmbolsar, "cell 0 3");
+		frmSupermercado.getContentPane().add(btnEmbolsar, "cell 0 3,alignx left,aligny top");
 		
 		scrollPane_1 = new JScrollPane();
+		scrollPane_1.addAncestorListener(new AncestorListener() {
+			public void ancestorAdded(AncestorEvent event) {
+			}
+			public void ancestorMoved(AncestorEvent event) {
+			}
+			public void ancestorRemoved(AncestorEvent event) {
+			}
+		});
 		frmSupermercado.getContentPane().add(scrollPane_1, "cell 0 4,grow");
 		
 		tablaEmbolsados = new JTable();
@@ -92,7 +108,23 @@ public class SupermercadoView {
 		scrollPane_1.setViewportView(tablaEmbolsados);
 		
 		btnEnvioAlmacen = new JButton("Enviar a almacén");
-		frmSupermercado.getContentPane().add(btnEnvioAlmacen, "cell 0 5");
+		btnEnvioAlmacen.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+			}
+		});
+		btnEnvioAlmacen.addAncestorListener(new AncestorListener() {
+			public void ancestorAdded(AncestorEvent event) {
+			}
+			public void ancestorMoved(AncestorEvent event) {
+			}
+			public void ancestorRemoved(AncestorEvent event) {
+			}
+		});
+		btnEnvioAlmacen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		frmSupermercado.getContentPane().add(btnEnvioAlmacen, "cell 0 8,alignx left,aligny top");
 		frmSupermercado.setVisible(true);
 	}
 	
@@ -107,3 +139,4 @@ public void rellenaListaArticulos(Object[] rowArticulo) {
 		
 	}
 }
+		
