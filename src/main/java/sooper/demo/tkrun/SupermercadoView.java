@@ -121,7 +121,8 @@ public class SupermercadoView {
 			}
 		});
 		btnEnvioAlmacen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { 
+				
 			}
 		});
 		frmSupermercado.getContentPane().add(btnEnvioAlmacen, "cell 0 8,alignx left,aligny top");
