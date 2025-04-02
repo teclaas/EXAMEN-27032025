@@ -9,6 +9,16 @@ import javax.swing.JTable;
 import java.awt.Button;
 import java.awt.ScrollPane;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JToggleButton;
+import javax.swing.JMenuBar;
+import java.awt.Panel;
+import javax.swing.JEditorPane;
+import javax.swing.JSpinner;
+import java.awt.Label;
+import javax.swing.table.DefaultTableModel;
 
 public class JGestionAlmacen {
 	
@@ -30,19 +40,26 @@ public class JGestionAlmacen {
 			JFrame frame = new JFrame(); 
 			Frame.setBounds(0,0,400, 500);// es el tamaño y aumentarlo//
 			frmSupermercado =frame;
-			frame.getContentPane().setLayout(new MigLayout("", "[grow]", "[][grow][]"));
+			frame.getContentPane().setLayout(new MigLayout("", "[grow][grow]", "[][grow][][grow][grow][]"));
 			
 			JLabel lblNewLabel = new JLabel("Articulos a Embolsar");
-			frame.getContentPane().add(lblNewLabel, "cell 0 0");
+			frame.getContentPane().add(lblNewLabel, "cell 1 0");
 			
 			JScrollPane scrollPane_1 = new JScrollPane();
-			frame.getContentPane().add(scrollPane_1, "cell 0 1,grow");
+			frame.getContentPane().add(scrollPane_1, "cell 1 3,grow");
 			
 			table_1 = new JTable();
+			table_1.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"idpedido", "idcontenedor"
+				}
+			));
 			scrollPane_1.setViewportView(table_1);
 			
-			JButton btnNewButton_2 = new JButton("New button");
-			frame.getContentPane().add(btnNewButton_2, "cell 0 2");
+			JButton btnNewButton_2 = new JButton("anadir articulo");
+			frame.getContentPane().add(btnNewButton_2, "cell 1 5");
 			frmSupermercado.getContentPane().setLayout(new MigLayout("", "[grow]", "[][][grow][]"));
 			
 			textField = new JTextField();
